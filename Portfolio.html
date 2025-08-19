@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AhmedMeatmed | Portfolio</title>
+  <meta name="description" content="Personal portfolio of Ahmed – Web Developer." />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --panel: #111418;
+      --muted: #7a8899;
+      --text: #e7ecf3;
+      --primary: #7c5cff;
+      --accent: #25d366;
+      --ring: rgba(124,92,255,.45);
+      --shadow: 0 10px 30px rgba(0,0,0,.3);
+      --radius: 16px;
+    }
+    @media(prefers-color-scheme: light){
+      :root{
+        --bg: #f7f9fc;
+        --panel: #ffffff;
+        --muted: #4b5563;
+        --text: #0f172a;
+        --primary: #6d28d9;
+        --accent: #16a34a;
+        --ring: rgba(109,40,217,.25);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 500px at 100% -10%, rgba(124,92,255,.08), transparent 60%),
+                  radial-gradient(800px 400px at -10% 0%, rgba(37,211,102,.07), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    .container{width:min(1100px, 92%); margin-inline:auto}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .brand{display:flex; gap:.6rem; align-items:center; font-weight:700; letter-spacing:.5px}
+    .brand .logo{width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg,var(--primary),#9a8bff)}
+    .brand .logo svg{fill:white}
+    .nav a{color:var(--text); text-decoration:none; opacity:.85}
+    .nav a:hover{opacity:1}
+    .nav .links{display:flex; gap:1rem}
+    .btn{display:inline-grid; place-items:center; padding:.65rem 1rem; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); background:color-mix(in oklab, var(--panel) 85%, transparent); box-shadow: var(--shadow);}
+    .btn:hover{border-color:color-mix(in oklab, var(--text) 30%, transparent)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center; padding: clamp(2rem, 5vw, 4rem) 0}
+    .hero h1{font-size: clamp(2rem, 4vw, 3rem); line-height:1.1; margin:.2rem 0 1rem}
+    .hero p{color:var(--muted); margin:0 0 1.5rem}
+    .pill{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .7rem; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); border-radius:999px; font-size:.85rem; color:var(--muted)}
+    .cta{display:flex; gap:.8rem; flex-wrap:wrap}
+    .cta .primary{background: linear-gradient(135deg, var(--primary), #9a8bff); color:white; border:none}
+    .stats{display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1.2rem}
+    .stat{padding:1rem; border-radius: var(--radius); background: var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+    .stat b{font-size:1.4rem}
+
+    .card{background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:var(--radius); box-shadow: var(--shadow)}
+
+    .portrait{aspect-ratio: 4/5; border-radius: var(--radius); overflow:hidden; display:grid; background: radial-gradient(600px 300px at 0% 0%, rgba(124,92,255,.15), transparent 60%), linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, transparent), color-mix(in oklab, var(--bg) 80%, transparent)); align-items:end; justify-items:end}
+    .portrait svg{opacity:.15; transform: translate(8px,8px)}
+
+    /* Sections */
+    section{padding: clamp(2rem, 5vw, 4rem) 0}
+    .section-title{font-size: clamp(1.4rem, 2.4vw, 2rem); margin:0 0 1.2rem}
+    .muted{color:var(--muted)}
+
+    /* About */
+    .about{display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem}
+    .about .card{padding:1.25rem}
+
+    /* Skills */
+    .skills-grid{display:grid; grid-template-columns: repeat(4,1fr); gap:1rem}
+    .chip{padding:.6rem .8rem; border-radius: 12px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--panel) 85%, transparent)}
+
+    /* Projects */
+    .projects-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem}
+    .project{overflow:hidden; display:flex; flex-direction:column}
+    .project .thumb{aspect-ratio: 16/10; background:linear-gradient(120deg, rgba(124,92,255,.2), rgba(37,211,102,.2)); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+    .project .body{padding:1rem}
+    .project h3{margin:.2rem 0 .4rem; font-size:1.1rem; color: white;}
+    .tags{display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.6rem}
+    .tag{font-size:.75rem; padding:.25rem .5rem; border-radius:999px; border:1px dashed color-mix(in oklab, var(--text) 20%, transparent); color: var(--muted)}
+
+    /* Experience */
+    .timeline{display:grid; gap:1rem}
+    .item{display:grid; grid-template-columns: 120px 1fr; gap:1rem; padding:1rem; border-radius:var(--radius); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); background:var(--panel)}
+    .item .when{font-weight:600; color:var(--muted)}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns: 1.1fr .9fr; gap:1rem; align-items:start}
+    form{display:grid; gap:.8rem}
+    input, textarea{
+      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent);
+      background: color-mix(in oklab, var(--panel) 85%, transparent); color:var(--text)
+    }
+    input:focus, textarea:focus{outline: 3px solid var(--ring); border-color:transparent}
+    textarea{min-height:140px; resize:vertical}
+
+    footer{padding:2rem 0; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+    .social{display:flex; gap:.6rem}
+    .social a{display:grid; place-items:center; width:40px; height:40px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); text-decoration:none; color:var(--text)}
+
+    /* Utilities */
+    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:1rem}
+    .subtle{border:1px dashed color-mix(in oklab, var(--text) 12%, transparent); background:transparent}
+
+    /* Responsive */
+    @media (max-width: 950px){
+      .hero, .about, .contact{grid-template-columns: 1fr}
+      .skills-grid{grid-template-columns: repeat(3,1fr)}
+      .projects-grid{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width: 600px){
+      .nav .links{display:none}
+      .stats{grid-template-columns: 1fr 1fr}
+      .skills-grid{grid-template-columns: repeat(2,1fr)}
+      .projects-grid{grid-template-columns: 1fr}
+      .item{grid-template-columns: 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.77 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z"/></svg>
+        </div>
+        <span>Ahmed Ibrahem Meatmed</span>
+      </div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#contact" aria-label="Contact Ahmed">Hire Me</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <span class="pill">👋 Hello! I’m Ahmed — SoftwareEngineer</span>
+        <h1>Building fast, clean, and delightful web apps — and ensuring their quality through thorough testing for seamless user experiences.</h1>
+        <p>I specialize in crafting modern and scalable web solutions using Vue and Laravel, combining the art of pixel-perfect design with the science of rigorous testing. My approach ensures that every project not only looks great but also performs flawlessly under real-world conditions. By leveraging efficient coding practices and proven frameworks, I’m able to deliver high-quality solutions faster and at a lower cost, helping businesses maximize value without sacrificing reliability or user experience.</p>
+        
+        
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+        <div class="stats">
+          <div class="stat card">
+            <b class="text-white">5+</b>
+            <div class="muted ">Projects Shipped</div>
+          </div>
+          <div class="stat card">
+            <b class="text-white">5</b>
+            <div class="muted ">Happy Clients</div>
+          </div>
+          <div class="stat card">
+            <b class="text-white">1 yr</b>
+            <div class="muted ">Experience</div>
+          </div>
+        </div>
+      </div>
+      <div class="portrait card rounded-circle" aria-hidden="true">
+        <img src="20250818_1925_Formal Office Portrait_remix_01k2yztrx5exxajcq5f09d29rb.png" alt="" style="height: 100%; width: 100%;" class="">
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about">
+        <div class="card">
+          <p class="text-white">
+            💻 I’m a developer based in Egypt who loves turning ideas into user-friendly products. My toolbox includes <b>Vue 3, Laravel, MySQL, and Bootstrap 5</b>. I focus on accessibility, performance, and clean code,<b>while integrating software testing practices to ensure reliability, scalability, and maintainability</b> . By combining development with rigorous testing, I deliver solutions that not only look great but also perform flawlessly in real-world conditions.</p>
+          <p class="muted ">Currently open to freelance and Internship roles. Let’s build something great!</p>
+        </div>
+        <div class="card grid-2 subtle">
+          <div>
+            <div class="muted ">Location</div>
+            <b class="text-white">Cairo, Egypt</b>
+          </div>
+          <div>
+            <div class="muted ">Email</div>
+            <b class="text-white">ahmedelazzba@gmail.com</b>
+          </div>
+          <div>
+            <div class="muted ">Role</div>
+            <b class="text-white">Full‑stack Developer & SoftwareTester</b>
+          </div>
+          <div>
+            <div class="muted ">Freelance</div>
+            <b class="text-white">Available</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="when">JULY 2024 - AUG 2024</div>
+          <div>
+            <b>Full‑stack Developer · Internship · ITI</b>
+            <p class="muted ">Delivering end‑to‑end web solutions for small businesses: planning, design, development, and deployment.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="when">JULY 2025 - AUG 2025</div>
+          <div>
+            <b>Frontend Developer · Internship · ITI </b>
+            <p class="muted ">Built responsive components in Vue 3, improved Lighthouse scores.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="when">JULY 2025 - Present</div>
+          <div>
+            <b>SoftwareTester · Internship · DEPI</b>
+            <p class="muted ">Detail-oriented Software Tester specializing in manual and automated testing. uncovering hidden bugs, and delivering seamless user experiences. With strong skills in test planning, execution, and reporting</p>
+          </div>
+        </div>
+
+    <!-- EDUCATION -->
+      <h2 class="section-title">EDUCATION</h2>
+      <div class="item">
+          <div class="when">SEP 2021 - Present</div>
+          <div>
+            <b>Bachelor’s Degree in Computer Engineering (Expected Graduation: 2026)</b>
+            <p class="muted ">Higher Institute of Engineering and Technology, Tanta   </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <article class="project card">
+          <div class="thumb">
+            <img src="Screenshot (57).png" alt="" srcset="" style="height: 100%; width: 100%;">
+          </div>
+          <div class="body">
+            <h3>Candidate & Employer Platform</h3>
+            <p class="muted ">LinkedIn‑inspired platform built with Laravel + MySQL, featuring profiles and an admin dashboard.</p>
+            <div class="tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Bootstrap</span>
+            </div>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="thumb">
+              <img src="Screenshot (89).png" alt="" srcset="" style="height: 100%; width: 100%;">
+          </div>
+          <div class="body">
+            <h3>E‑commerce Web App</h3>
+            <p class="muted ">Cart, checkout, and admin analytics. Optimized for performance and SEO.</p>
+            <div class="tags">
+              <span class="tag">Vue 3</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">Stripe</span>
+            </div>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="thumb">
+              <img src="Screenshot (82).png" alt="" srcset="" style="height: 100%; width: 100%;">
+          </div>
+          <div class="body">
+            <h3>Business Company</h3>
+            <p class="muted ">A lightweight template with semantic HTML, CSS variables, and responsive grid.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Vite</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="chip">HTML5</div>
+        <div class="chip">CSS3</div>
+        <div class="chip">JavaScript (ES6+)</div>
+        <div class="chip">Vue 3 (Composition API)</div>
+        <div class="chip">Laravel</div>
+        <div class="chip">REST APIs</div>
+        <div class="chip">MySQL</div>
+        <div class="chip">Bootstrap 5</div>
+        <div class="chip">Git & GitHub</div>
+        <!-- <div class="chip">Unit Testing</div> -->
+        <div class="chip">Responsive Design</div>
+        <!-- <div class="chip">Accessibility (a11y)</div> -->
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="projects">
+      <h2 class="section-title">Certifications</h2>
+      <div class="projects-grid">
+        <article class="project card" style="max-height: fit-content;">
+          <div class="thumb">
+            <img src="Screenshot (91).png" alt="" srcset="" style="height: 100%; width: 100%;">
+          </div>
+          <div class="body" >
+            <h3>DATA BASE FUNDMENTALS</h3>
+          </div>
+        </article>
+        <article class="project card" style="max-height: fit-content;">
+          <div class="thumb">
+              <img src="Screenshot (92).png" alt="" srcset="" style="height: 100%; width: 100%;">
+          </div>
+          <div class="body">
+            <h3>SOFTWARE FUNDMENTALS</h3>
+          </div>
+        </article>
+        <article class="project card" style="max-height: fit-content;">
+          <div class="thumb">
+              <img src="fullStack.png" alt="" srcset="" style=" width: 100%;">
+          </div>
+          <div class="body">
+            <h3>FULL STACK WEB DEVELOPMENT - PHP</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <!-- <h2 class="section-title">Contact</h2> -->
+      <div class="contact">
+        <!-- <form class="card p-2" onsubmit="event.preventDefault(); alert('Thanks! I\'ll get back to you soon.');">
+          <label>
+            <span class="muted">Your Name</span>
+            <input type="text" placeholder="John Doe" required />
+          </label>
+          <label>
+            <span class="muted">Email</span>
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            <span class="muted">Message</span>
+            <textarea placeholder="Tell me about your project..." required></textarea>
+          </label>
+          <button class="btn primary text-light" type="submit">Send Message</button>
+        </form> -->
+        <div class="card" style="padding:1rem">
+          <h3 style="margin-top:0" class="text-light">Let’s build something!</h3>
+          <p class="muted">Prefer email or WhatsApp? I usually reply within 24 hours.</p>
+          <div class="social">
+            <a aria-label="Email" target="_blank" href="mailto:ahmedelazzba@gmail.com"><i class="bi bi-envelope-at"></i></a>
+            <a aria-label="GitHub" target="_blank" href="https://github.com/ahmedMeatmed"><i class="bi bi-github"></i></a>
+            <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/ahmed-meatmed-4526421a4/"><i class="bi bi-linkedin"></i></a>
+            <a aria-label="WhatsApp" target="_blank" href="https://wa.me/201032216868"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> AhmedMeatmed — All rights reserved.</small>
+  </footer>
+
+  <script>
+    // Set year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

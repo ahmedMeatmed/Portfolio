@@ -134,6 +134,90 @@
       .projects-grid{grid-template-columns: 1fr}
       .item{grid-template-columns: 1fr}
     }
+    /* === Pricing Table (Dark Theme) === */
+.pricing-table {
+  padding: 3rem 0;
+  text-align: center;
+    /* background: #1a1a1a;         */
+  color: #f0f0f0;
+}
+.pricing-table .pt-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #e6e6e6;
+}
+.pt-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* shared card styles */
+.pt-card {
+  width: 45em;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  color: #f0f0f0;
+  text-align: center;
+  background: #262626;        /* default card background */
+  box-shadow: 0 8px 25px rgba(0,0,0,.5);
+  border: 1px solid #333;
+}
+.pt-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.pt-features {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  text-align: left;
+}
+.pt-features li {
+  border-radius: 10px;
+    margin: .4rem 0;
+    font-size: .95rem;
+    background-color: #ffffff0f;
+}
+
+.pt-price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.pt-price span {
+  font-size: .8rem;
+  opacity: .8;
+}
+.pt-btn {
+  display: inline-block;
+  padding: .7rem 1.5rem;
+  border-radius: 999px;
+  background: #444;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .3s, color .3s;
+}
+.pt-btn:hover {
+  background: #666;
+  color: #fff;
+}
+
+/* subtle classic accent borders */
+.pt-basic {
+  border-top: 4px solid #4a90e2;   /* blue */
+}
+.pt-standard {
+  border-top: 4px solid #a37df0;   /* violet */
+}
+.pt-premium {
+  border-top: 4px solid #f0b94d;   /* golden */
+}
+
   </style>
 </head>
 <body>
@@ -225,15 +309,12 @@
     <section id="services">
       <h2 class="section-title">Services</h2>
       <div class="skills-grid">
-        <div class="chip"><h4>Back-End-Web Development</h4></div>
-        <div class="chip"><h4>Front-End-Web Development</h4></div>
-        <div class="chip"><h4>Manual Testing</h4></div>
+        <div class="chip"><h6>Back-End-Web Development</h6></div>
+        <div class="chip"><h6>Front-End-Web Development</h6></div>
+        <div class="chip"><h6>Manual Testing</h6></div>
       </div>
     </section>
-    <section id="pricing">
-      <h2 class="section-title">Pricing</h2>
-      <h4>$30 USD/hr</h4>
-    </section>
+    
     <!-- Experience -->
     <section id="experience">
       <h2 class="section-title">Experience</h2>
@@ -335,14 +416,18 @@
         <div class="chip">CSS3</div>
         <div class="chip">JavaScript (ES6+)</div>
         <div class="chip">Vue 3 (Composition API)</div>
+        <div class="chip">PHP</div>
         <div class="chip">Laravel</div>
         <div class="chip">REST APIs</div>
         <div class="chip">MySQL</div>
         <div class="chip">Bootstrap 5</div>
         <div class="chip">Git & GitHub</div>
-        <!-- <div class="chip">Unit Testing</div> -->
         <div class="chip">Responsive Design</div>
-        <!-- <div class="chip">Accessibility (a11y)</div> -->
+        <div class="chip">Manual Testing</div>
+        <div class="chip">Performing Static Analysis</div>
+        <div class="chip">Designing Test Cases using Static Testing Techniques</div>
+        <div class="chip">Creating professional Bug Reports</div>
+        <div class="chip">Writing a Test Summary Report</div>
       </div>
     </section>
 
@@ -383,6 +468,57 @@
         </article>
       </div>
     </section>
+
+    <section id="plans" class="pricing-table">
+  <h2 class="pt-title">Plans & Pricing</h2>
+  <div class="pt-grid">
+    <div class="pt-card pt-basic">
+      <h3 class="pt-name">Basic</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs.)</li>
+        <li>✔ Testing (Requirment Analysis)</li>
+        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Simple CRUD, bug fixes, small features.)</li>
+
+        <!-- <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li> -->
+        <li>✖ Testing (Design Effective Test Cases)</li>
+      </ul>
+      <div class="pt-price">$59 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+    </div>
+
+    <div class="pt-card pt-standard">
+      <h3 class="pt-name">Standard</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs.)</li>
+        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
+        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases )</li>
+        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li>
+      </ul>
+      <div class="pt-price">$99 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+    </div>
+
+    <div class="pt-card pt-premium">
+      <h3 class="pt-name">Premium</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs)</li>
+        <li>✔ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
+        <li>✔ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases  )</li>
+        <li>✔ Testing (Bug Reporting , Writing a Test Summary Report )</li>
+        <!-- <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li> -->
+      </ul>
+      <div class="pt-price">$129 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+    </div>
+  </div>
+</section>
 
     <!-- Contact -->
     <section id="contact">

@@ -179,7 +179,7 @@
   border-radius: 10px;
     margin: .4rem 0;
     font-size: .95rem;
-    background-color: #ffffff0f;
+    background-color: #8b00009c;
 }
 
 .pt-price {
@@ -216,6 +216,99 @@
 }
 .pt-premium {
   border-top: 4px solid #f0b94d;   /* golden */
+}
+.pricingBody 
+{
+  font-family: 'Poppins', sans-serif;
+  /* background: #222; */
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pricingBody .title {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.pricingBody .pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.pricingBody .card {
+  width: 260px;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricingBody .card-header h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.pricingBody .stars {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.pricingBody .features {
+  list-style: none;
+  margin: 20px 0;
+  text-align: left;
+  padding: 0 15px;
+}
+
+.pricingBody .features li {
+  /* margin: 10px 0;
+  font-size: 15px; */
+  margin: 10px 0;
+    font-size: 15px;
+    background: darkred;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.pricingBody .price {
+  font-size: 28px;
+  margin: 20px 0 10px;
+  font-weight: bold;
+}
+.pricingBody .price span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.pricingBody .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #fff;
+  color: #333;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.pricingBody .btn:hover {
+  background: #eee;
+}
+
+/* Gradient Backgrounds */
+.pricingBody .basic {
+  background: linear-gradient(180deg, #a000c8, #ff007b);
+}
+.pricingBody .standard {
+  background: linear-gradient(180deg, #ff7b00, #ff2f4b);
+}
+.pricingBody .premium {
+  background: linear-gradient(180deg, #00d4ff, #6a00ff);
 }
 
   </style>
@@ -271,7 +364,7 @@
         </div>
       </div>
       <div class="portrait card rounded-circle" aria-hidden="true">
-        <img src="20250818_1925_Formal Office Portrait_remix_01k2yztrx5exxajcq5f09d29rb.png" alt="" style="height: 100%; width: 100%;" class="">
+        <img src="copy.png" alt="" style="height: 100%; width: 100%;" class="">
       </div>
     </section>
 
@@ -334,7 +427,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="when">JULY 2025 - Present</div>
+          <div class="when">JULY 2025 -- DEC 2025</div>
           <div>
             <b>SoftwareTester · Internship · DEPI</b>
             <p class="muted ">Detail-oriented Software Tester specializing in manual and automated testing. uncovering hidden bugs, and delivering seamless user experiences. With strong skills in test planning, execution, and reporting</p>
@@ -405,6 +498,28 @@
             </div>
           </div>
         </article>
+        <article class="project card">
+          <div class="thumb">
+            <a href="#"  rel="noopener noreferrer">  
+              <img src="Aegis.jpeg" alt="" srcset="" style="height: 100%; width: 100%;">
+            </a>
+          </div>
+          <div class="body">
+            <h3>Dashboard to control IDS System</h3>
+            <p class="muted ">Dashboard fullStack implemented using Laravel - Vue.js</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">ES5</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Axios</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -469,76 +584,62 @@
       </div>
     </section>
 
-    <section id="plans" class="pricing-table">
-  <h2 class="pt-title">Plans & Pricing</h2>
-  <div class="pt-grid">
-    <div class="pt-card pt-basic">
-      <h3 class="pt-name">Basic</h3>
-      <ul class="pt-features">
-        <li>✔ Front-End (Basic component work, simple UIs.)</li>
-        <li>✔ Testing (Requirment Analysis)</li>
-        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
-        <li>✖ Back-End (Simple CRUD, bug fixes, small features.)</li>
-
-        <!-- <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li> -->
-        <li>✖ Testing (Design Effective Test Cases)</li>
+    <!-- Pricing -->
+   <div class="pricingBody">
+     <div class="pricing-container">
+    <!-- BASIC -->
+    <div class="card basic">
+      <div class="card-header">
+        <h2>BASIC</h2>
+        <span class="stars">★ ★ ☆ ☆ ☆</span>
+      </div>
+      <ul class="features">
+        <li>✔ Front-End</li>
+        <li>✔ Testing</li>
+        <li>✖ Testing (Advanced)</li>
+        <li>✖ Back-End</li>
       </ul>
-      <div class="pt-price">$59 <span>/Hour</span></div>
-      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+      <div class="price">$18.88 <span>USD / Hour</span></div>
+      <!-- <a href="#" class="btn">BUY NOW</a> -->
     </div>
 
-    <div class="pt-card pt-standard">
-      <h3 class="pt-name">Standard</h3>
-      <ul class="pt-features">
-        <li>✔ Front-End (Basic component work, simple UIs.)</li>
-        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
-        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases )</li>
-        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
-        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
-        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li>
+    <!-- STANDARD -->
+    <div class="card standard">
+      <div class="card-header">
+        <h2>STANDARD</h2>
+        <span class="stars">★ ★ ★ ☆ ☆</span>
+      </div>
+      <ul class="features">
+        <li>✔ Front-End</li>
+        <li>✔ Testing (Advanced)</li>
+        <li>✔ Back-End</li>
+        <li>✖ Back-End (Advanced)</li>
       </ul>
-      <div class="pt-price">$99 <span>/Hour</span></div>
-      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+      <div class="price">$28.88 <span>USD / Hour</span></div>
+      <!-- <a href="#" class="btn">BUY NOW</a> -->
     </div>
 
-    <div class="pt-card pt-premium">
-      <h3 class="pt-name">Premium</h3>
-      <ul class="pt-features">
-        <li>✔ Front-End (Basic component work, simple UIs)</li>
-        <li>✔ Front-End (build features, integrate APIs, optimize performance)</li>
-        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
-        <li>✔ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
-        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases  )</li>
-        <li>✔ Testing (Bug Reporting , Writing a Test Summary Report )</li>
-        <!-- <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
-        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
-        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li> -->
+    <!-- PREMIUM -->
+    <div class="card premium">
+      <div class="card-header">
+        <h2>PREMIUM</h2>
+        <span class="stars">★ ★ ★ ★ ★</span>
+      </div>
+      <ul class="features">
+        <li>✔ Front-End (Advanced)</li>
+        <li>✔ Testing (Advanced)</li>
+        <li>✔ Back-End (Advanced)</li>
+        <li>✔ Documentation</li>
       </ul>
-      <div class="pt-price">$129 <span>/Hour</span></div>
-      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+      <div class="price">$38.88 <span>USD / Hour</span></div>
+      <!-- <a href="#" class="btn">BUY NOW</a> -->
     </div>
   </div>
-</section>
+  </div>
 
     <!-- Contact -->
     <section id="contact">
-      <!-- <h2 class="section-title">Contact</h2> -->
       <div class="contact">
-        <!-- <form class="card p-2" onsubmit="event.preventDefault(); alert('Thanks! I\'ll get back to you soon.');">
-          <label>
-            <span class="muted">Your Name</span>
-            <input type="text" placeholder="John Doe" required />
-          </label>
-          <label>
-            <span class="muted">Email</span>
-            <input type="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            <span class="muted">Message</span>
-            <textarea placeholder="Tell me about your project..." required></textarea>
-          </label>
-          <button class="btn primary text-light" type="submit">Send Message</button>
-        </form> -->
         <div class="card" style="padding:1rem">
           <h3 style="margin-top:0" class="text-light">Let’s build something!</h3>
           <p class="muted">Prefer email or WhatsApp? I usually reply within 24 hours.</p>
@@ -563,3 +664,53 @@
   </script>
 </body>
 </html>
+ <!--<section id="plans" class="pricing-table">
+  <h2 class="pt-title">Plans & Pricing</h2>
+  <div class="pt-grid">
+    <div class="pt-card pt-basic">
+      <h3 class="pt-name">Basic</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs.)</li>
+        <li>✔ Testing (Requirment Analysis)</li>
+        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Simple CRUD, bug fixes, small features.)</li>
+
+        <!-- <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li> -->
+         <!--<li>✖ Testing (Design Effective Test Cases)</li>
+      </ul>
+      <div class="pt-price">$59 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+     <!--</div>
+
+    <div class="pt-card pt-standard">
+      <h3 class="pt-name">Standard</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs.)</li>
+        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
+        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases )</li>
+        <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li>
+      </ul>
+      <div class="pt-price">$99 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+    <!-- </div>
+
+    <div class="pt-card pt-premium">
+      <h3 class="pt-name">Premium</h3>
+      <ul class="pt-features">
+        <li>✔ Front-End (Basic component work, simple UIs)</li>
+        <li>✔ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✔ Back-End (Simple CRUD, bug fixes, small features.)</li>
+        <li>✔ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✔ Testing (Requirment Analysis , Design Effective Test Cases  )</li>
+        <li>✔ Testing (Bug Reporting , Writing a Test Summary Report )</li>
+        <!-- <li>✖ Front-End (build features, integrate APIs, optimize performance)</li>
+        <li>✖ Back-End (Designing/rest APIs, more complex modules, integrations, optimizing performance.)</li>
+        <li>✖ Testing (Bug Reporting , Writing a Test Summary Report)</li> -->
+      <!-- </ul>
+      <div class="pt-price">$129 <span>/Hour</span></div>
+      <!-- <a href="#" class="pt-btn">Buy Now</a> -->
+     <!--</div>
+  </div>
+</section>
